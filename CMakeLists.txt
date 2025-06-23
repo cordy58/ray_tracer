@@ -7,4 +7,4 @@ set(CMAKE_CXX_STANDARD 17)
 add_executable(raytrace main.cpp)
 
 # If your headers are in subfolders, add include directories
-include_directories(${CMAKE_CURRENT_SOURCE_DIR})
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}, external)
