@@ -1,5 +1,6 @@
 from flask import Flask, send_file, jsonify
 from flask_cors import CORS
+from PIL import Image
 import subprocess
 import os
 
@@ -12,14 +13,19 @@ RAYTRACE_EXE = os.path.join(os.getcwd(), 'build', 'raytrace')
 # Path to output image
 IMAGE_PATH = os.path.join(os.getcwd(), 'static', 'im.ppm')
 
+PPM_PATH = "static/im.ppm"
+PNG_PATH = "static/im.png"
+
 @app.route('/render')
 def render_image():
     try:
-        # Run the raytracer executable
         result = subprocess.run([RAYTRACE_EXE], capture_output=True, text=True)
 
         if result.returncode != 0:
             return jsonify({'error': 'Raytracer failed', 'details': result.stderr}), 500
+
+        with Image.open(PPM_PATH) as img:
+            img.save(PNG_PATH, format="PNG")
 
         return jsonify({'message': 'Image rendered successfully'})
     except Exception as e:
@@ -28,9 +34,8 @@ def render_image():
 
 @app.route('/image')
 def get_image():
-    # Serve the image if it exists
-    if os.path.exists(IMAGE_PATH):
-        return send_file(IMAGE_PATH, mimetype='image/x-portable-pixmap')
+    if os.path.exists(PNG_PATH):
+        return send_file(PNG_PATH, mimetype='image/png')
     else:
         return jsonify({'error': 'Image not found'}), 404
 
