@@ -10,7 +10,7 @@ CORS(app)
 
 # Paths
 BUILD_DIR = "./build/Release"
-RAYTRACE_EXE = os.path.join(BUILD_DIR, "raytrace.exe")
+RAYTRACE_EXE = os.path.join(BUILD_DIR, "raytrace")
 PPM_PATH = "static/im.ppm"
 PNG_PATH = "static/im.png"
 SCENE_JSON = "scene.json"

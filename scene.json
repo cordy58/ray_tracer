@@ -1,0 +1,18 @@
+{
+  "lights": {
+    "direction": [0.0, 1.0, 0.0],
+    "color": [1.0, 1.0, 1.0],
+    "ambient": [0.1, 0.1, 0.1]
+  },
+  "background": [0.2, 0.2, 0.2],
+  "spheres": [],
+  "triangles": [],
+  "camera": {
+    "look_from": [0, 0, 1],
+    "look_at": [0, 0, 0],
+    "look_up": [0, 1, 0],
+    "aspect_ratio": 16.0,
+    "image_width": 400,
+    "vfov": 90
+  }
+}
