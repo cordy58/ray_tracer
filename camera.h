@@ -2,6 +2,7 @@
 #define CAMERA_H
 
 #include <fstream>
+#include <sstream>
 
 #include "hittable.h"
 #include "hittable_list.h"
@@ -15,6 +16,7 @@ class camera {
         vec3 look_up;               // 'up' direction
         double vfov;                // vertical field of view (degrees)
 
+        #ifndef __EMSCRIPTEN__
         void render(const hittable_list& world, const std::string& filename) {
             std::ofstream output_file(filename, std::ios::out | std::ios::trunc);
 
@@ -42,6 +44,28 @@ class camera {
             std::clog << "\rDone.                 \n";
             output_file.close();
         }
+        #endif
+
+        std::string render_to_string(const hittable_list& world) {
+            std::ostringstream out;
+            initialize();
+        
+            out << "P3\n" << image_width << ' ' << image_height << "\n255\n";
+        
+            for (int j = 0; j < image_height; j++) {
+                for (int i = 0; i < image_width; i++) {
+                    auto pixel_center = pixel00_loc + (i * pixel_delta_u) + (j * pixel_delta_v);
+                    auto ray_direction = pixel_center - look_from;
+                    ray r(look_from, ray_direction);
+        
+                    color pixel_color = ray_color(r, world);
+                    write_color(out, pixel_color);
+                }
+            }
+        
+            return out.str();
+        }
+        
 
     private:
         int    image_height;   // Rendered image height

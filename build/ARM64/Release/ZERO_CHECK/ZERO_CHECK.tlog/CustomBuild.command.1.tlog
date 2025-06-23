@@ -1,0 +1,10 @@
+^C:\USERS\CORDE\ONEDRIVE\DESKTOP\SCHOOL\RAY_TRACER\BUILD\CMAKEFILES\AFA11F412EB71D26907B9F178702F919\GENERATE.STAMP.RULE
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/corde/OneDrive/Desktop/School/ray_tracer -BC:/Users/corde/OneDrive/Desktop/School/ray_tracer/build --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file C:/Users/corde/OneDrive/Desktop/School/ray_tracer/build/raytracer.sln
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
