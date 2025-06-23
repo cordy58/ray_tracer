@@ -20,6 +20,9 @@ RUN pip3 install --no-cache-dir -r requirements.txt
 # Build your C++ code
 RUN mkdir build && cd build && cmake .. && cmake --build . --config Release
 
+# DEBUG: Show contents of build/Release
+# RUN echo "=== /app/build/Release ===" && ls -l /app/build/Release
+
 # Set Flask environment variable
 ENV FLASK_APP=app.py
 ENV FLASK_RUN_PORT=8080

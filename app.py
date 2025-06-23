@@ -9,7 +9,7 @@ app = Flask(__name__)
 CORS(app)
 
 # Paths
-BUILD_DIR = "./build/Release"
+BUILD_DIR = "./build"
 RAYTRACE_EXE = os.path.join(BUILD_DIR, "raytrace")
 PPM_PATH = "static/im.ppm"
 PNG_PATH = "static/im.png"
