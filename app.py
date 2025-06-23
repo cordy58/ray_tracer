@@ -5,7 +5,7 @@ import os
 app = Flask(__name__)
 
 # Absolute path to raytrace.exe inside build/Release/
-RAYTRACE_EXE = os.path.join(os.getcwd(), 'build', 'Release', 'raytrace.exe')
+RAYTRACE_EXE = os.path.join(os.getcwd(), 'build', 'raytrace')
 
 # Path to output image
 IMAGE_PATH = os.path.join(os.getcwd(), 'static', 'im.ppm')
