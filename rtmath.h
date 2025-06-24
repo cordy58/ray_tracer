@@ -19,6 +19,11 @@ inline double degrees_to_radians(double degrees) {
     return degrees * pi / 180.0;
 }
 
+template <typename T>
+T clamp(T x, T lower, T upper) {
+    return std::min(upper, std::max(x, lower));
+}
+
 // Common Headers
 #include "color.h"
 #include "ray.h"

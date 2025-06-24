@@ -73,6 +73,8 @@ class camera {
         vec3   pixel_delta_u;  // Offset to pixel to the right
         vec3   pixel_delta_v;  // Offset to pixel below
 
+
+
         void initialize() {
             image_height = int(image_width / aspect_ratio);
             image_height = (image_height < 1) ? 1 : image_height;
@@ -161,8 +163,14 @@ class camera {
                 }
             }
 
-            return final_color;
+            // return final_color;
+            return color(
+                clamp(final_color.x(), 0.0, 1.0),
+                clamp(final_color.y(), 0.0, 1.0),
+                clamp(final_color.z(), 0.0, 1.0)
+            );
         }
+
 };
 
 #endif
