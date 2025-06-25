@@ -5,8 +5,7 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR})
 
 
-# Only compile main.cpp
 add_executable(raytrace main.cpp)
+add_executable(raytrace_old main-deprecated.cpp)
 
-# If your headers are in subfolders, add include directories
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}, external)

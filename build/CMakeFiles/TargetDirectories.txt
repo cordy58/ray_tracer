@@ -1,3 +1,4 @@
 C:/Users/corde/OneDrive/Desktop/School/ray_tracer/build/CMakeFiles/raytrace.dir
+C:/Users/corde/OneDrive/Desktop/School/ray_tracer/build/CMakeFiles/raytrace_old.dir
 C:/Users/corde/OneDrive/Desktop/School/ray_tracer/build/CMakeFiles/ALL_BUILD.dir
 C:/Users/corde/OneDrive/Desktop/School/ray_tracer/build/CMakeFiles/ZERO_CHECK.dir
